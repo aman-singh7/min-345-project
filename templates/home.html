@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <ol class="list-group list-group-numbered">
+    {% for name, path in solvers.items %}
+        <li class="list-group-item">
+            <a href="{% url path %}">{{name}}</a>
+        </li>
+    {% endfor %}
+    </ol>
+{% endblock content %}

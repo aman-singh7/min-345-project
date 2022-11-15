@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<form>
+    <fieldset disabled>
+        <legend>Result</legend>
+        {% for field in form %}
+            <div class="mb-3">
+                <label for="disabledTextInput" class="form-label">{{field.label}}</label>
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="{{field.value}}">
+            </div>
+        {% endfor %}
+    </fieldset>
+</form>
+
+{% endblock %}
