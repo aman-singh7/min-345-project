@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h5 class="display-6">Input:</h5>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="row g-4 align-items-center mb-4">
+        <div class="col-auto">
+            {{form.choice}}
+        </div>
+        <div class="col-auto">
+            {{form.state}}
+        </div>
+        <div class="col-auto">:</div>
+        <div class="col-auto">
+            <input name="value" type="text" />
+        </div>
+    </div>
+
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+<script type="text/javascript">
+    const choiceDropdown = document.querySelector('#id_choice');
+    const stateDropdown = document.querySelector('#id_state');
+
+    function stateButton(value) {
+        if(value == "friction" || value == "entropy" || value == "total_pressure") {
+            stateDropdown.style.display = 'block';
+        } else {
+            stateDropdown.style.display = 'none';
+        }
+    }
+
+    if(choiceDropdown) {
+        stateButton(choiceDropdown.value);
+        choiceDropdown.addEventListener('change', () => {
+            var value = choiceDropdown.value;
+            
+            stateButton(value)
+        });
+    }
+</script>
+
+{% endblock content %}
